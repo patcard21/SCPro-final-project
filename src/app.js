@@ -116,11 +116,12 @@ form.addEventListener("submit", handleSubmit);
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let fahrenheitTemperature = (14 * 9) / 5 + 32;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   alert(fahrenheitTemperature);
   let temperatureElement = document.querySelector("#temeprature");
   temperatureElement.innerHTML = fahrenheitTemperature;
 }
+celsiusTemperature = null;
 search("New York");
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
