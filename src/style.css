@@ -9,10 +9,6 @@ h1 {
   line-height: 28px;
   margin-bottom: 0;
 }
-small {
-  text-align: center;
-  margin-bottom: 24px;
-}
 
 ul {
   margin: 0;
@@ -32,6 +28,11 @@ li {
 
 li:first-letter {
   text-transform: capitalize;
+}
+
+.footer-repo {
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 .weather-app-wrapper {
