@@ -117,7 +117,6 @@ form.addEventListener("submit", handleSubmit);
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  alert(fahrenheitTemperature);
   let temperatureElement = document.querySelector("#temeprature");
   temperatureElement.innerHTML = fahrenheitTemperature;
 }
