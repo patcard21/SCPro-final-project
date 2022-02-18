@@ -83,10 +83,20 @@ li:first-letter {
 }
 
 .weather-app {
-  padding: 20px;
-
-  border-radius: 8px;
-  border: 8px double rgb(194, 177, 218);
+  padding: 10px;
+  border-radius: 32px;
+  border: 2px double rgb(210, 196, 230);
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+.weather-app-inner {
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+  border-radius: 32px;
+  padding: 40px;
+  background: linear-gradient(
+    0deg,
+    rgb(252, 221, 221) 23.8%,
+    rgb(247, 247, 247) 92%
+  );
 }
 
 .overview {
@@ -141,4 +151,15 @@ li:first-letter {
 
 .weather-forecast-temperatures {
   font-size: 13px;
+}
+
+.row {
+  padding: 10px;
+}
+#city-input {
+  box-shadow: -7px 4px 5px 0px rgba(87, 117, 214, 0.3);
+  border: 1px, rgb(83, 83, 83);
+}
+#search-form {
+  margin-bottom: 60px;
 }
