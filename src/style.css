@@ -159,9 +159,9 @@ li:first-letter {
 #forecast {
   padding-top: 10px;
 }
-
-#row {
+.col #row {
   padding-bottom: 10px;
+  text-align: center;
 }
 #city-input {
   box-shadow: -7px 4px 5px 0px rgba(87, 117, 214, 0.3);
