@@ -1,4 +1,5 @@
 // global variables:
+let coords = null;
 let celsiusTemperature = null;
 let units = "metric";
 
@@ -74,6 +75,7 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
+  coords = coordinates;
   let apiKey = "f342232225801b254dd2b555d44be1e9";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayForecast);
@@ -134,7 +136,7 @@ function displayFahrenheitTemperature(event) {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   units = "imperial";
-  getForecast(coordinates);
+  getForecast(coords);
 }
 
 function displayCelsiusTemperature(event) {
@@ -145,7 +147,7 @@ function displayCelsiusTemperature(event) {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   units = "metric";
-  getForecast(coordinates);
+  getForecast(coords);
 }
 
 
