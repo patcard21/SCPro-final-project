@@ -126,9 +126,8 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-
 // Temp conversion
-function displayFahrenheitTemperature(event) { 
+function displayFahrenheitTemperature(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
