@@ -1,9 +1,9 @@
-// global variables:
+// Global variables:
 let coords = null;
 let celsiusTemperature = null;
 let units = "metric";
 
-
+// Date & Time
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -36,12 +36,11 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+// Forecast
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-
   let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
@@ -81,6 +80,8 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+// Temperature
+
 function displayTemperature(response) {
   debugger;
   let temperatureElement = document.querySelector("#temperature");
@@ -108,6 +109,7 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
+// City search
 function search(city) {
   let apiKey = "f342232225801b254dd2b555d44be1e9";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -127,7 +129,6 @@ function handleSubmit(event) {
 
 
 // Temp conversion
-
 function displayFahrenheitTemperature(event) { 
   event.preventDefault();
   celsiusLink.classList.remove("active");
@@ -140,7 +141,7 @@ function displayFahrenheitTemperature(event) {
 }
 
 function displayCelsiusTemperature(event) {
-  event.preventDefault();
+  
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
@@ -150,8 +151,14 @@ function displayCelsiusTemperature(event) {
   getForecast(coords);
 }
 
+// Temp conversion LINKS
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
+// Search form
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
@@ -161,6 +168,7 @@ function showWeather(response) {
   h1.innerHTML = `${response.data.name}`;
 }
 
+// Retrieve position; Current Position
 function retrievePosition(position) {
   let apiKey = "f342232225801b254dd2b555d44be1e9";
   let lat = position.coords.latitude;
@@ -170,9 +178,3 @@ function retrievePosition(position) {
 }
 
 navigator.geolocation.getCurrentPosition(retrievePosition);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
