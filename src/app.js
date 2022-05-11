@@ -1,3 +1,5 @@
+
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -138,6 +140,24 @@ let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+function showTempF(event) {
+  event.preventDefault();
+  tempClickC.classList.remove("active");
+  tempClickF.classList.add("active");
+
+  units = "imperial";
+  searchLocation(coordinates.lat, coordinates.lon);
+}
+
+function showTempC(event) {
+  event.preventDefault();
+  tempClickF.classList.remove("active");
+  tempClickC.classList.add("active");
+
+  units = "metric";
+  searchLocation(coordinates.lat, coordinates.lon);
+}
 
 function showWeather(response) {
   let h1 = document.querySelector("h1");
