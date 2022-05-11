@@ -1,5 +1,3 @@
-
-
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -31,7 +29,7 @@ function formatDay(timestamp) {
 
   return days[day];
 }
-let coordinates = null;
+
 function displayForecast(response) {
   let forecast = response.data.daily;
 
