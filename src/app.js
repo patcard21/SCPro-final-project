@@ -1,3 +1,8 @@
+// global variables:
+let celsiusTemperature = null;
+let units = "metric";
+
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -29,6 +34,7 @@ function formatDay(timestamp) {
 
   return days[day];
 }
+
 
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -69,11 +75,12 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "f342232225801b254dd2b555d44be1e9";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
+  debugger;
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -116,13 +123,18 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFahrenheitTemperature(event) {
+
+// Temp conversion
+
+function displayFahrenheitTemperature(event) { 
   event.preventDefault();
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  units = "imperial";
+  getForecast(coordinates);
 }
 
 function displayCelsiusTemperature(event) {
@@ -132,9 +144,11 @@ function displayCelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#temperature");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  units = "metric";
+  getForecast(coordinates);
 }
 
-let celsiusTemperature = null;
+
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
