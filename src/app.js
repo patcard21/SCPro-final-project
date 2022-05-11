@@ -142,7 +142,7 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
-  let celsiusTemperature = (fahrenheitTemperature - 32) * 9 / 5;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   units = "metric";
   getForecast(coordinates);
