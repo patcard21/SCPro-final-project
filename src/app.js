@@ -1,6 +1,6 @@
 // Global variables:
 let coords = null;
-
+let celsiusTemperature = null;
 let units = "metric";
 
 // Date & Time
@@ -83,7 +83,6 @@ function getForecast(coordinates) {
 // Temperature
 
 function displayTemperature(response) {
-  debugger;
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
