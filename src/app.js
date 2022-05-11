@@ -116,7 +116,6 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-<<<<<<< HEAD
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
@@ -137,8 +136,6 @@ function displayCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 
-=======
->>>>>>> parent of 6b559eb (conversion test 2)
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
@@ -155,31 +152,6 @@ function retrievePosition(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(displayTemperature);
 }
-<<<<<<< HEAD
-=======
-function findCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showCurrentLocation);
-}
-
-function showTempF(event) {
-  event.preventDefault();
-  tempClickC.classList.remove("active");
-  tempClickF.classList.add("active");
-
-  units = "imperial";
-  searchLocation(coordinates.lat, coordinates.lon);
-}
-
-function showTempC(event) {
-  event.preventDefault();
-  tempClickF.classList.remove("active");
-  tempClickC.classList.add("active");
-
-  units = "metric";
-  searchLocation(coordinates.lat, coordinates.lon);
-}
->>>>>>> parent of 6b559eb (conversion test 2)
 
 navigator.geolocation.getCurrentPosition(retrievePosition);
 
