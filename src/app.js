@@ -142,7 +142,7 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let celsiusTemperature = (fahrenheitTemperature - 32) * 9 / 5;
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   units = "metric";
   getForecast(coordinates);
@@ -163,7 +163,7 @@ function retrievePosition(position) {
   let apiKey = "f342232225801b254dd2b555d44be1e9";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
   axios.get(url).then(displayTemperature);
 }
 
