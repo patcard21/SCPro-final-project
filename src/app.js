@@ -1,6 +1,6 @@
 // Global variables:
 let coords = null;
-let celsiusTemperature = null;
+
 let units = "metric";
 
 // Date & Time
