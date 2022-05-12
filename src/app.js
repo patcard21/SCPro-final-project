@@ -106,10 +106,13 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 // City search
 function search(city) {
+  units = "metric";
   let apiKey = "f342232225801b254dd2b555d44be1e9";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayTemperature);
@@ -168,6 +171,7 @@ function showWeather(response) {
 
 // Retrieve position; Current Position
 function retrievePosition(position) {
+  units = "metric";
   let apiKey = "f342232225801b254dd2b555d44be1e9";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
